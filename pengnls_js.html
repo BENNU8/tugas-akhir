@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengenalan JavaScript</title>
+    <style>
+        /* Reset Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #e0eafc, #c8d8f0);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(90deg, #1e90ff, #6495ed);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            animation: slideInDown 1s ease-out;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f4f7fb;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #1e90ff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .code-example {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            white-space: nowrap;
+            color: #333;
+        }
+
+        .button-example {
+            background: #1e90ff;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .button-example:hover {
+            background-color: #4682b4;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            color: white;
+            
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Pengenalan JavaScript</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Dialog Box: alert(), prompt(), confirm()</h2>
+            <p>Dialog box digunakan untuk berinteraksi dengan pengguna. Berikut adalah contoh cara kerjanya:</p>
+            <div class="code-example">
+                <code>
+                    alert('Halo, Selamat datang di JavaScript!');<br>
+                    const nama = prompt('Siapa nama Anda?');<br>
+                    const apakahSetuju = confirm('Apakah Anda suka JavaScript?');
+                </code>
+            </div>
+            <button class="button-example" onclick="tampilkanAlert()">Coba Alert</button>
+            <button class="button-example" onclick="tampilkanPrompt()">Coba Prompt</button>
+            <button class="button-example" onclick="tampilkanConfirm()">Coba Confirm</button>
+        </section>
+
+        <section>
+            <h2>Tipe Data dan Operator</h2>
+            <p>JavaScript mendukung berbagai tipe data seperti string, angka, dan boolean, serta operator untuk melakukan operasi pada data:</p>
+            <div class="code-example">
+                <code>
+                    let angka = 5;<br>
+                    let teks = 'Halo';<br>
+                    let aktif = true;<br>
+                    let jumlah = angka + 10; // Operator Aritmatika
+                </code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Struktur Kendali: if, else, switch</h2>
+            <p>Pernyataan kondisi seperti <code>if</code>, <code>else</code>, dan <code>switch</code> digunakan untuk mengontrol alur program:</p>
+            <div class="code-example">
+                <code>
+                    if (angka > 5) {<br>
+                    &nbsp;&nbsp;console.log('Angka lebih besar dari 5');<br>
+                    } else {<br>
+                    &nbsp;&nbsp;console.log('Angka kurang dari atau sama dengan 5');<br>
+                    }<br><br>
+
+                    switch (teks) {<br>
+                    &nbsp;&nbsp;case 'Halo':<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;console.log('Salam');<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+                    &nbsp;&nbsp;default:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;console.log('Tidak ada kecocokan');<br>
+                    }
+                </code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pengulangan: for, while</h2>
+            <p>Loop seperti <code>for</code> dan <code>while</code> digunakan untuk mengeksekusi kode berulang kali:</p>
+            <div class="code-example">
+                <code>
+                    for (let i = 0; i &lt; 5; i++) {<br>
+                    &nbsp;&nbsp;console.log(i);<br>
+                    }<br><br>
+
+                    let i = 0;<br>
+                    while (i &lt; 5) {<br>
+                    &nbsp;&nbsp;console.log(i);<br>
+                    &nbsp;&nbsp;i++;<br>
+                    }
+                </code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Fungsi dan Array</h2>
+            <p>Fungsi dan array adalah bagian penting dalam JavaScript. Fungsi memungkinkan kita untuk menggunakan kode yang sama berkali-kali, dan array digunakan untuk menyimpan beberapa nilai:</p>
+            <div class="code-example">
+                <code>
+                    function sapa(nama) {<br>
+                    &nbsp;&nbsp;console.log('Halo ' + nama);<br>
+                    }<br><br>
+
+                    const buah = ['Apel', 'Pisang', 'Ceri'];<br>
+                    buah.forEach(buah => console.log(buah));
+                </code>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Pengenalan JavaScript - Belajar dengan Interaktif</p>
+    </footer>
+
+    <script>
+        // Fungsi JavaScript untuk Dialog Boxes
+        function tampilkanAlert() {
+            alert('Halo, Selamat datang di JavaScript!');
+        }
+
+        function tampilkanPrompt() {
+            const nama = prompt('Siapa nama Anda?');
+            alert('Halo ' + nama);
+        }
+
+        function tampilkanConfirm() {
+            const apakahSetuju = confirm('Apakah Anda suka JavaScript?');
+            if (apakahSetuju) {
+                alert('Hebat! JavaScript itu keren!');
+            } else {
+                alert('Oh tidak! Semoga Anda berubah pikiran!');
+            }
+        }
+    </script>
+
+</body>
+</html>

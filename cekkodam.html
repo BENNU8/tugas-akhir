@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cek Khodam Berdasarkan Nama</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #2c3e50;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      padding: 40px;
+      background: rgba(44, 62, 80, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      width: 80%;
+      max-width: 500px;
+      transition: transform 0.3s ease;
+    }
+
+    .container:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #f39c12;
+    }
+
+    input {
+      padding: 12px;
+      font-size: 16px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 2px solid #f39c12;
+      width: 80%;
+      max-width: 400px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #e74c3c;
+    }
+
+    button {
+      padding: 12px 25px;
+      background-color: #27ae60;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background-color: #2ecc71;
+      transform: scale(1.1);
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #f1c40f;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transform: scale(0.5);
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .highlight {
+      color: #e74c3c;
+      font-style: italic;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Cek Khodam Berdasarkan Nama</h1>
+    <input type="text" id="nameInput" placeholder="Masukkan Nama Anda" />
+    <button onclick="checkKhodam()">Cek Khodam</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function checkKhodam() {
+      const name = document.getElementById('nameInput').value;
+      if (!name) {
+        document.getElementById('result').textContent = 'Masukkan nama terlebih dahulu.';
+        return;
+      }
+
+      // Fungsi untuk menghasilkan khodam berdasarkan nama
+      const khodamList = [
+        'kadal gimbal', 'naga lumpuh', 'kecoa bunting', 'cicak sumbing', 
+        'beat karbu', 'kenalpot samlong', 'tabung gas', 'ban bekas'
+      ];
+
+      // Menghasilkan khodam berdasarkan panjang nama
+      const khodamIndex = name.length % khodamList.length;
+      const khodam = khodamList[khodamIndex];
+
+      // Menampilkan hasil dengan animasi dan efek highlight
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `${name}, <span class="highlight">khodam Anda adalah: ${khodam}</span>.`;
+      resultDiv.style.animation = 'fadeIn 1s forwards';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #e3f2fd, #bbdefb);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1976d2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            color: #0d47a1;
+            border-bottom: 2px solid #bbdefb;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 5px 0;
+            font-size: 1.1em;
+        }
+
+        ul li:before {
+            content: "\2022";
+            color: #1976d2;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #1976d2;
+            color: white;
+        }
+
+        .media-section {
+            text-align: center;
+        }
+
+        audio,
+        video {
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .profile-photo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #1976d2;
+            object-fit: cover;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: 0.3s ease;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #1976d2;
+            color: white;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>My Portfolio</h1>
+
+        <!-- Biodata Section -->
+        <div class="section" id="bio">
+            <h2>Biodata Diri</h2>
+            <img src="WhatsApp Image 2022-09-22 at 11.16.35.jpeg" alt="Foto Profil" class="profile-photo">
+            <ul>
+                <li>Nama: Muhamad Nabukatneja Dwi Kusnandar</li>
+                <li>Tanggal Lahir: 21 September 2003</li>
+                <li>Email: nabukatneja8@gmail.com</li>
+                <li>No. Telepon: +6282122329256</li>
+                <li>Alamat: Jl. Cilubang Mekar RT2 RW8 Bogor Barat</li>
+            </ul>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="section" id="experience">
+            <h2>Pengalaman</h2>
+            <ul>
+                <li>TOP 1 Ciputat Timur Jhonson</li>
+                <li>TOP Lokal 1 Jhonson</li>
+            </ul>
+        </div>
+
+        <!-- Education Section -->
+        <div class="section" id="education">
+            <h2>Riwayat Pendidikan</h2>
+            <table>
+                <tr>
+                    <th>Tahun</th>
+                    <th>Institusi</th>
+                    <th>Jurusan</th>
+                </tr>
+                <tr>
+                    <td>2010 - 2016</td>
+                    <td>SDN Situgede 4</td>
+                    <td>Sekolah Dasar</td>
+                </tr>
+                <tr>
+                    <td>2016 - 2019</td>
+                    <td>SMP Negeri 6 Bogor</td>
+                    <td>Sekolah Menengah Pertama</td>
+                </tr>
+                <tr>
+                    <td>2019 - 2022</td>
+                    <td>Bogor Center School</td>
+                    <td>Multimedia</td>
+                </tr>
+                <tr>
+                    <td>2022 - sekarang</td>
+                    <td>Universitas Pamulang</td>
+                    <td>Teknik Informatika</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Media Section -->
+        <div class="section media-section">
+            <h2>Media</h2>
+            <h3>Audio</h3>
+            <audio controls>
+                <source src="audio/sample.mp3" type="audio/mpeg">
+                Browser Anda tidak mendukung audio.
+            </audio>
+
+            <h3>Video</h3>
+            <video controls>
+                <source src="VID-20240705-WA0049.vlc" type="video/mp4">
+                Browser Anda tidak mendukung video.
+            </video>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Muhamad Nabukatneja Dwi Kusnandar</p>
+    </footer>
+</body>
+
+</html>

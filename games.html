@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slither Game</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #1d2671, #c33764);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    canvas {
+      border: 2px solid #fff;
+      background: #121212;
+      display: block;
+    }
+
+    .game-info {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .game-over {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      color: #fff;
+      text-align: center;
+      z-index: 10;
+      display: none;
+    }
+
+    .restart-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #00b894;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .restart-btn:hover {
+      background-color: #00cec9;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-info">
+    <p>Score: <span id="score">0</span> | High Score: <span id="highScore">0</span></p>
+  </div>
+
+  <div class="game-over" id="gameOver">
+    <p>Game Over! Your score: <span id="finalScore">0</span></p>
+    <button class="restart-btn" onclick="restartGame()">Restart</button>
+  </div>
+
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const gameOverDiv = document.getElementById('gameOver');
+    const finalScore = document.getElementById('finalScore');
+    const scoreElement = document.getElementById('score');
+    const highScoreElement = document.getElementById('highScore');
+
+    const snake = [{ x: 200, y: 200 }];
+    let food = { x: Math.floor(Math.random() * 40) * 20, y: Math.floor(Math.random() * 30) * 20 };
+    let direction = 'RIGHT';
+    let score = 0;
+    let gameInterval;
+    let highScore = localStorage.getItem('highScore') || 0; // Get high score from localStorage
+    highScoreElement.textContent = highScore;
+
+    function drawRect(x, y, color) {
+      ctx.fillStyle = color;
+      ctx.fillRect(x, y, 20, 20);
+    }
+
+    function drawSnake() {
+      snake.forEach(segment => drawRect(segment.x, segment.y, '#27ae60'));
+    }
+
+    function drawFood() {
+      drawRect(food.x, food.y, '#e74c3c');
+    }
+
+    function moveSnake() {
+      const head = { ...snake[0] };
+
+      if (direction === 'UP') head.y -= 20;
+      if (direction === 'DOWN') head.y += 20;
+      if (direction === 'LEFT') head.x -= 20;
+      if (direction === 'RIGHT') head.x += 20;
+
+      snake.unshift(head);
+
+      if (head.x === food.x && head.y === food.y) {
+        score++;
+        scoreElement.textContent = score;
+        food = { x: Math.floor(Math.random() * 40) * 20, y: Math.floor(Math.random() * 30) * 20 };
+        if (score > highScore) {
+          highScore = score;
+          highScoreElement.textContent = highScore;
+          localStorage.setItem('highScore', highScore); // Save high score to localStorage
+        }
+      } else {
+        snake.pop();
+      }
+    }
+
+    function isGameOver() {
+      const head = snake[0];
+
+      // Check wall collisions
+      if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height) {
+        return true;
+      }
+
+      // Check self collisions
+      for (let i = 1; i < snake.length; i++) {
+        if (head.x === snake[i].x && head.y === snake[i].y) {
+          return true;
+        }
+      }
+
+      return false;
+    }
+
+    function restartGame() {
+      snake.splice(0, snake.length, { x: 200, y: 200 });
+      food = { x: Math.floor(Math.random() * 40) * 20, y: Math.floor(Math.random() * 30) * 20 };
+      direction = 'RIGHT';
+      score = 0;
+      scoreElement.textContent = score;
+      gameOverDiv.style.display = 'none';
+      clearInterval(gameInterval);
+      gameInterval = setInterval(gameLoop, 100);
+    }
+
+    function gameLoop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      moveSnake();
+
+      if (isGameOver()) {
+        clearInterval(gameInterval);
+        finalScore.textContent = score;
+        gameOverDiv.style.display = 'block';
+        return;
+      }
+
+      drawSnake();
+      drawFood();
+    }
+
+    window.addEventListener('keydown', event => {
+      if (event.key === 'ArrowUp' && direction !== 'DOWN') direction = 'UP';
+      if (event.key === 'ArrowDown' && direction !== 'UP') direction = 'DOWN';
+      if (event.key === 'ArrowLeft' && direction !== 'RIGHT') direction = 'LEFT';
+      if (event.key === 'ArrowRight' && direction !== 'LEFT') direction = 'RIGHT';
+    });
+
+    gameInterval = setInterval(gameLoop, 100);
+  </script>
+</body>
+</html>

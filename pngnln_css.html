@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengenalan CSS</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #f1f2f6, #a3b2c2);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(90deg, #3b8d99, #6d8a91);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            animation: slideInDown 1s ease-out;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f4f7fb;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #3b8d99;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .example-code {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            white-space: nowrap;
+            color: #333;
+        }
+
+        .class-example {
+            background: #e7f1f5;
+            border: 2px solid #3b8d99;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px auto;
+            width: 50%;
+            animation: bounceIn 1.5s ease-in-out;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            color: white;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounceIn {
+            from {
+                transform: translateY(-300px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Pengenalan CSS</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Apa itu CSS?</h2>
+            <p>CSS (Cascading Style Sheets) adalah bahasa yang digunakan untuk mengatur tampilan dan tata letak elemen-elemen HTML. CSS memungkinkan kita untuk mengubah warna, ukuran, jarak, dan banyak aspek visual lainnya dari elemen di halaman web.</p>
+        </section>
+
+        <section>
+            <h2>Penggunaan CSS untuk Mengatur Tampilan Elemen HTML</h2>
+            <p>CSS dapat diterapkan ke elemen HTML untuk mengubah tampilannya. Berikut contoh sederhana pengaturan warna latar belakang dan ukuran font menggunakan CSS:</p>
+            <div class="example-code">
+                <code>
+                    body {<br>
+                    &nbsp;&nbsp;background-color: #f0f0f0;<br>
+                    &nbsp;&nbsp;font-size: 16px;<br>
+                    }
+                </code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Class dalam CSS untuk Mengelompokkan Gaya</h2>
+            <p>CSS menggunakan class untuk mengelompokkan elemen-elemen dengan gaya yang sama. Contoh penggunaan class:</p>
+            <div class="example-code">
+                <code>
+                    .highlight {<br>
+                    &nbsp;&nbsp;color: white;<br>
+                    &nbsp;&nbsp;background-color: #3498db;<br>
+                    &nbsp;&nbsp;padding: 10px;<br>
+                    &nbsp;&nbsp;border-radius: 5px;<br>
+                    }
+                </code>
+            </div>
+
+            <div class="class-example">
+                <p class="highlight">Ini adalah contoh penggunaan class CSS.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Division &lt;div&gt; untuk Pengelompokan Konten</h2>
+            <p>Elemen &lt;div&gt; digunakan untuk mengelompokkan elemen-elemen HTML lain menjadi satu blok. Ini sangat berguna untuk menyusun konten dalam halaman web.</p>
+            <div class="example-code">
+                <code>
+                    &lt;div class="container"&gt;<br>
+                    &nbsp;&nbsp;&lt;h2&gt;Judul Section&lt;/h2&gt;<br>
+                    &nbsp;&nbsp;&lt;p&gt;Ini adalah isi dari section.&lt;/p&gt;<br>
+                    &lt;/div&gt;
+                </code>
+            </div>
+
+            <div class="container">
+                <h2>Judul Section</h2>
+                <p>Ini adalah isi dari section.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Pengenalan CSS - Belajar dengan Animasi</p>
+    </footer>
+
+</body>
+</html>

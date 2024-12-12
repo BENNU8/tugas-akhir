@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengenalan HTML</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #eef2f3, #8e9eab);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            color: white;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            animation: slideInDown 1s ease-out;
+        }
+
+        main {
+            padding: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: #4facfe;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            color: white;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+            animation: slideInUp 1s ease-out;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pengenalan HTML</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Apa itu HTML?</h2>
+            <p>HTML (HyperText Markup Language) adalah bahasa standar yang digunakan untuk membuat dan merancang halaman web. HTML memungkinkan pengembang untuk mendefinisikan struktur konten menggunakan elemen-elemen seperti heading, paragraf, tautan, gambar, dan banyak lagi.</p>
+        </section>
+        <section>
+            <h2>Struktur Dasar HTML</h2>
+            <p>Dokumen HTML terdiri dari elemen-elemen yang dibuka dengan tag pembuka dan ditutup dengan tag penutup. Contoh struktur dasar HTML:</p>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Judul Halaman&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Halo Dunia!&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </section>
+        <section>
+            <h2>Basic HTML Tags</h2>
+            <ul>
+                <li><strong>&lt;html&gt;:</strong> Menandakan awal dan akhir dokumen HTML.</li>
+                <li><strong>&lt;head&gt;:</strong> Bagian untuk metadata seperti judul halaman dan referensi ke file eksternal.</li>
+                <li><strong>&lt;body&gt;:</strong> Menampung semua konten halaman yang terlihat oleh pengguna.</li>
+                <li><strong>&lt;h1&gt; hingga &lt;h6&gt;:</strong> Heading atau judul dengan berbagai ukuran.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Format Teks dan Karakter Khusus</h2>
+            <p>HTML menyediakan elemen untuk memformat teks, seperti <code>&lt;b&gt;</code> untuk teks tebal, <code>&lt;i&gt;</code> untuk teks miring, dan <code>&lt;u&gt;</code> untuk teks bergaris bawah.</p>
+            <p>Untuk karakter khusus, seperti tanda copyright atau simbol lainnya, gunakan entitas HTML seperti <code>&amp;copy;</code> untuk ©.</p>
+        </section>
+        <section>
+            <h2>Menampilkan Gambar, Suara, dan Video</h2>
+            <p>HTML memungkinkan untuk menampilkan media menggunakan elemen berikut:</p>
+            <ul>
+                <li><strong>&lt;img&gt;:</strong> Menampilkan gambar.</li>
+                <li><strong>&lt;audio&gt;:</strong> Menyisipkan file audio.</li>
+                <li><strong>&lt;video&gt;:</strong> Menyisipkan file video.</li>
+            </ul>
+            <p>Contoh penggunaan:</p>
+            <pre><code>&lt;img src="image.jpg" alt="Deskripsi gambar"&gt;
+&lt;audio controls&gt;&lt;source src="audio.mp3" type="audio/mp3"&gt;&lt;/audio&gt;
+&lt;video controls&gt;&lt;source src="video.mp4" type="video/mp4"&gt;&lt;/video&gt;</code></pre>
+        </section>
+        <section>
+            <h2>Hyperlink dengan &lt;a&gt;</h2>
+            <p>HTML memungkinkan untuk membuat hyperlink menggunakan elemen <code>&lt;a&gt;</code>. Berikut contoh penggunaannya:</p>
+            <pre><code>&lt;a href="https://www.example.com"&gt;Kunjungi Website&lt;/a&gt;</code></pre>
+        </section>
+        <section>
+            <h2>Daftar, Penomoran, dan List</h2>
+            <p>HTML menyediakan elemen untuk membuat daftar:</p>
+            <ul>
+                <li><strong>&lt;ul&gt; dan &lt;li&gt;:</strong> Daftar tak berurut (bullet).</li>
+                <li><strong>&lt;ol&gt; dan &lt;li&gt;:</strong> Daftar berurut (nomor).</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Pembuatan Tabel</h2>
+            <p>HTML memungkinkan pembuatan tabel menggunakan elemen-elemen seperti <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, dan <code>&lt;td&gt;</code>. Berikut contoh tabel:</p>
+            <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Nama&lt;/th&gt;
+    &lt;th&gt;Usia&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;John&lt;/td&gt;
+    &lt;td&gt;25&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+        </section>
+        <section>
+            <h2>Formulir dan Input</h2>
+            <p>HTML memungkinkan pembuatan formulir dengan elemen-elemen seperti <code>&lt;form&gt;</code>, <code>&lt;input&gt;</code>, dan <code>&lt;textarea&gt;</code>:</p>
+            <pre><code>&lt;form action="submit.php"&gt;
+  &lt;label&gt;Nama:&lt;/label&gt;
+  &lt;input type="text" name="name"&gt;
+  &lt;textarea name="message"&gt;&lt;/textarea&gt;
+  &lt;input type="submit" value="Kirim"&gt;
+&lt;/form&gt;</code></pre>
+        </section>
+        <section>
+            <h2>Frame dan Iframe</h2>
+            <p>Anda dapat menyisipkan halaman lain dalam halaman HTML menggunakan <code>&lt;iframe&gt;</code>:</p>
+            <pre><code>&lt;iframe src="https://www.example.com" width="600" height="400"&gt;&lt;/iframe&gt;</code></pre>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Materi Pembelajaran HTML</p>
+    </footer>
+</body>
+</html>
